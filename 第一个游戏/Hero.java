@@ -11,6 +11,7 @@ public class Hero {
     private int HP;//英雄血量
     private int attack;//英雄攻击力
 
+
     // -------------我们课上讲的封装 start----------
     public int getAttack() {
         return attack;

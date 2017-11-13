@@ -91,6 +91,7 @@ public class Stage {
                 case 3 :
                     timo.chaofeng();
                     break;
+                case 4 :
                 default :
                     System.out.println(timo.getName() + "什么也没有做");
                     break;
