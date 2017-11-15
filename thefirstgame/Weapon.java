@@ -1,4 +1,4 @@
-package 第一个游戏;
+package thefirstgame;
 
 /**
  * @Author zhang

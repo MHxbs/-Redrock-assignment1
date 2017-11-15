@@ -1,6 +1,6 @@
-﻿package 第一个游戏;
+package thefirstgame;
 
-        import java.util.Random;
+import java.util.Random;
 
 /**
  * @Author zhang
@@ -13,10 +13,13 @@ public class Stage {
     //盖伦的武器攻击力
     public int garenWeaponAttack[] = {30,20,24,25};
 
+
     //提莫的武器名字
     public String timoWeaponName[] = {"电刀","饮血剑","破败王者","杀戮之剑"};
     //提莫的武器攻击力
     public int timoWeaponAttack[] = {32,30,22,24};
+
+
 
 
     public void startWar(Garen garen,TIMO timo) {
@@ -45,6 +48,7 @@ public class Stage {
             //给盖伦的武器设置名字和攻击力
             garenWeapon.setWeaponAttact(garenWeaponAttack[garenNumber]);
             garenWeapon.setWeaponName(garenWeaponName[garenNumber]);
+            //
 
             //实例化武器类 并且赋值给一个叫 timoWeapon的引用
             //这是属于提莫的武器
@@ -56,13 +60,19 @@ public class Stage {
 
             //盖伦有三种状态 获取武器 攻击提莫 什么也不做
             Random garenAction = new Random(System.currentTimeMillis());
-            int num1 = garenAction.nextInt(3) + 1;
+            int num1 = garenAction.nextInt(5) + 1;
             switch(num1){
                 case 1 :
                     garen.attack(timo);
                     break;
                 case 2 :
                     garen.getWeapon(garenWeapon);
+                    break;
+                case 3 :
+                    garen.skill1(timo);
+                    break;
+                case 4 :
+                    garen.skill2();
                     break;
                 default :
                     System.out.println(garen.getName() + "什么也没做");
@@ -80,7 +90,7 @@ public class Stage {
 
             //提莫也有三种状态 获取武器 攻击盖伦 嘲讽盖伦 什么也不做
             Random timoAction = new Random(System.currentTimeMillis());
-            int num2 = timoAction.nextInt(3) + 1;
+            int num2 = timoAction.nextInt(4) + 1;
             switch(num2){
                 case 1 :
                     timo.attack(garen);
@@ -91,7 +101,9 @@ public class Stage {
                 case 3 :
                     timo.chaofeng();
                     break;
-                case 4 
+                case 4 :
+                    timo.skill(garen);
+                    break;
                 default :
                     System.out.println(timo.getName() + "什么也没有做");
                     break;
@@ -107,11 +119,13 @@ public class Stage {
         garen.setName("gay伦");
         garen.setAttack(100);
         garen.setHP(1000);
+        garen.setDefense(1000);
         //实例化一个提莫
         TIMO timo = new TIMO();
         timo.setName("提莫");
         timo.setHP(800);
         timo.setAttack(150);
+        timo.setDefense(800);
         //实例化一个对战舞台 调用打架方法
         Stage stage = new Stage();
         stage.startWar(garen,timo);

@@ -1,4 +1,4 @@
-package 第一个游戏;
+package thefirstgame;
 
 /**
  * @Author zhang
@@ -10,7 +10,7 @@ public class Hero {
     private String name;//英雄名字
     private int HP;//英雄血量
     private int attack;//英雄攻击力
-
+    private int defense;
 
     // -------------我们课上讲的封装 start----------
     public int getAttack() {
@@ -36,6 +36,10 @@ public class Hero {
     public void setHP(int HP) {
         this.HP = HP;
     }
+
+    public void setDefense(int defense){this.defense= defense; }
+
+    public  int getDefense(){return defense;}
 
     //----------封装 end------------------------------
 
