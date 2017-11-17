@@ -16,9 +16,17 @@ public class Garen extends Hero{
         if(getAttack() <= timo.getHP()+timo.getDefense()){
             //如果盖伦攻击力减去提莫的防御力比被timo的血量还低 说明这次攻击不足以击杀对方
             //我们就把提莫的HP减去  减去的值应该是盖伦的攻击力和提莫的防御力
-            anotherHeroLeftHP = timo.getHP() - getAttack()-timo.getDefense();
-            //然后把timo还剩下的血量设置回去
-            timo.setHP(anotherHeroLeftHP);
+
+            //如果盖伦的攻击力大于提莫的防御力，则攻击
+            if (getAttack()>timo.getDefense()) {
+                anotherHeroLeftHP = timo.getHP() - getAttack() - timo.getDefense();
+                //然后把timo还剩下的血量设置回去
+                timo.setHP(anotherHeroLeftHP);
+            }
+            //如果盖伦的攻击力小于提莫的防御力，则miss
+            else {
+                System.out.println("盖伦的攻击力比提莫的防御力,提莫miss");
+            }
 
             System.out.println(this.getName() + "攻击了" + timo.getName() + "," + timo.getName() + "HP还剩" + timo.getHP());
         }else{
@@ -31,6 +39,7 @@ public class Garen extends Hero{
 
     //你可以为盖伦添加其他有意思的方法 但是记得在调用的时候打印出来
     public void skill1 (TIMO timo){
+
             int anotherHeroLeftDefense = 0;
             anotherHeroLeftDefense =timo.getDefense()-100;
             timo.setDefense(anotherHeroLeftDefense);

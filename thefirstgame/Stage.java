@@ -42,7 +42,7 @@ public class Stage {
             //这是属于盖伦的武器
             Weapon garenWeapon = new Weapon();
             //java中的随机数类
-            Random garenRandom = new Random(System.currentTimeMillis());
+            Random garenRandom = new Random();
             //随机0-3的一个整数出来
             int garenNumber = garenRandom.nextInt(4);
             //给盖伦的武器设置名字和攻击力
@@ -53,13 +53,13 @@ public class Stage {
             //实例化武器类 并且赋值给一个叫 timoWeapon的引用
             //这是属于提莫的武器
             Weapon timoWeapon = new Weapon();
-            Random timoRandon = new Random(System.currentTimeMillis());
+            Random timoRandon = new Random();
             int timoNumber = timoRandon.nextInt(4);
             timoWeapon.setWeaponName(timoWeaponName[timoNumber]);
             timoWeapon.setWeaponAttact(timoWeaponAttack[timoNumber]);
 
             //盖伦有三种状态 获取武器 攻击提莫 什么也不做
-            Random garenAction = new Random(System.currentTimeMillis());
+            Random garenAction = new Random();
             int num1 = garenAction.nextInt(5) + 1;
             switch(num1){
                 case 1 :
@@ -89,7 +89,7 @@ public class Stage {
             }
 
             //提莫也有三种状态 获取武器 攻击盖伦 嘲讽盖伦 什么也不做
-            Random timoAction = new Random(System.currentTimeMillis());
+            Random timoAction = new Random();
             int num2 = timoAction.nextInt(4) + 1;
             switch(num2){
                 case 1 :

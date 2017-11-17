@@ -16,10 +16,17 @@ public class TIMO extends Hero{
         if(getAttack() <= garen.getHP()+garen.getDefense()){
             //如果提莫攻击力比盖伦的血量和防御力还低 说明这次攻击不足以击杀对方
             //我们就把盖伦的HP减去  减去的值应该是提莫当前的攻击力
-            anotherHeroLeftHP = garen.getHP() - getAttack()-garen.getDefense();
-            //然后把被攻击的英雄还剩下的血量设置回去
-            garen.setHP(anotherHeroLeftHP);
 
+            //如果提莫的攻击力大于盖伦的防御力，提莫就进行攻击
+            if (getAttack()>garen.getDefense()) {
+                anotherHeroLeftHP = garen.getHP() - getAttack() - garen.getDefense();
+                //然后把被攻击的英雄还剩下的血量设置回去
+                garen.setHP(anotherHeroLeftHP);
+            }
+            //如果提莫的攻击力小于盖伦的防御力，则miss
+            else{
+                System.out.println("提莫的攻击力比盖伦的防御力低,盖伦miss");
+            }
             System.out.println(this.getName() + "攻击了" + garen.getName() + "," + garen.getName() + "HP还剩" + garen.getHP());
         }else{
             //如果提莫的攻击力 比garen的血量和防御力还高 那garen就死了 游戏就结束了
